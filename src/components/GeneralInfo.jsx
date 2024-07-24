@@ -1,50 +1,43 @@
-export function GeneralInfo({ isEditing, infos, handleOnInfoChange }) {
+import Label from "./Label";
+
+export default function GeneralInfo({ infos, isEditing, handleOnInfoChange }) {
   return (
-    <div className="upper section">
-      <label htmlFor="name">
-        {"Name: "}
-        {isEditing ? (
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={infos.name}
-            onChange={handleOnInfoChange}
-          />
-        ) : (
-          <b>{infos.name}</b>
-        )}
-      </label>
-
-      <label htmlFor="email">
-        {"Email: "}
-        {isEditing ? (
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={infos.email}
-            onChange={handleOnInfoChange}
-          />
-        ) : (
-          <b>{infos.email}</b>
-        )}
-      </label>
-
-      <label htmlFor="phone">
-        {"Phone: "}
-        {isEditing ? (
-          <input
-            type="phone"
-            name="phone"
-            id="phone"
-            value={infos.phone}
-            onChange={handleOnInfoChange}
-          />
-        ) : (
-          <b>{infos.phone}</b>
-        )}
-      </label>
-    </div>
+    <>
+      <h2>General Info</h2>
+      <div className="upper section">
+        <Label
+          infos={infos}
+          isEditing={isEditing}
+          handleOnInfoChange={handleOnInfoChange}
+          type="text"
+          id="name"
+          text={"Name"}
+        ></Label>
+        <Label
+          infos={infos}
+          isEditing={isEditing}
+          handleOnInfoChange={handleOnInfoChange}
+          type="email"
+          id="email"
+          text={"Email"}
+        ></Label>
+        <Label
+          infos={infos}
+          isEditing={isEditing}
+          handleOnInfoChange={handleOnInfoChange}
+          type="phone"
+          id="phone"
+          text={"Phone"}
+        ></Label>
+        <Label
+          type={"text"}
+          id={"address"}
+          text={"Address"}
+          infos={infos}
+          handleOnInfoChange={handleOnInfoChange}
+          isEditing={isEditing}
+        />
+      </div>
+    </>
   );
 }
